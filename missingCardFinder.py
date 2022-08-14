@@ -14,7 +14,6 @@ sets = {"AOTC": 180, "SR": 90, "ANH": "A New Hope", "BOY": "Battle of Yavin", "J
 "BOTS": "Battle of the Sarlacc", "TMW": "The Mandalorian Way", "BOBF": "The Book of Boba Fett"}
 
 baseSetPath = "starwars/sets/"
-# baseSetPath = "LackeyCCG/plugins/starwars/sets/"
 
 missingCards = {}
 allCards = {}
@@ -25,20 +24,15 @@ def constructSetFilePath(setCode):
 
 
 def processULCard(imageFrag, currentSet, cards):
-	# print(imageFrag)
 	imagePath = baseSetPath + "setimages/" + currentSet + "/" + imageFrag
 	if not os.path.exists(imagePath):
-		missingCards[imageFrag] = "Image file from UpdateList entry doesn't exist in folder " + currentSet + ": " + imageFrag
-		# print("imagePath is " + imagePath)
+		missingCards[imageFrag] = imageFrag + " was missing from folder " + currentSet + ", name taken from updatelist.txt"
 
 	slicedFrag = imageFrag[:-4]
 	if slicedFrag not in cards.keys():
-		missingCards[slicedFrag] = slicedFrag + " from UpdateList not found in " + currentSet + ".txt"
-		# if currentSet == "TMW":
-		# 	print("slicedFrag is " + slicedFrag)
+		missingCards[slicedFrag] = slicedFrag + " was an updatelist.txt entry but wasn't found in " + currentSet + ".txt"
 	else:
 		cards[slicedFrag] = False
-	# print(cards)
 	
 
 
@@ -53,21 +47,16 @@ def processSetFile(setCode):
 			card = line.split('\t')
 			name = card[0]
 			imageFrag = card[2]
-			# if imageFrag.startswith("TMW02"):
-			# 	print(imageFrag)
 			cards[imageFrag] = True
 			if name in allCards.keys():
-				print("Duplicate entry found for card: " + name)
+				print("Duplicate name found for card: " + name)
 			else:
 				allCards[name] = True
-	# if setCode == "ROTS":
-	# 	print(cards)
 	return cards
 
 
 def processUpdateList():
 	with io.open("starwars/updatelist.txt", "r", encoding='cp1252') as updateList:
-	# with io.open("LackeyCCG/plugins/starwars/updatelist.txt", "r", encoding='cp1252') as updateList:
 		counter = 0
 
 		# Skip down to the actual cards
@@ -85,14 +74,10 @@ def processUpdateList():
 			if nextSet != currentSet:
 				for key in cards.keys():
 					if cards[key] == True:
-						# print("key was true for " + key)
-						missingCards[key] = key + " from set file " + currentSet + " has no corresponding updateList entry"
+						missingCards[key] = key + " from set file " + currentSet + ".txt has no corresponding updateList entry"
 				currentSet = nextSet
 				cards = processSetFile(currentSet)
 			processULCard(imageLink, currentSet, cards)
-		# for card in cards.keys():
-		# 	if cards[card] == False:
-		# 		print("Duplicate entry found for card: " + card)
 
 def main():
 
