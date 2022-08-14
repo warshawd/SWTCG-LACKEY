@@ -12,7 +12,7 @@ jobs:
       - name: Validate the plugin
         run: |
           python3 missingCardFinder.py > output.txt
-      -name: Check for output
+      - name: Check for output
         run: |
           export FILESIZE=$(wc -c output.txt | awk '{print $1}')
       - uses: tsickert/discord-webhook@v4.0.0
