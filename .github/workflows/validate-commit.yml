@@ -15,7 +15,7 @@ jobs:
       - name: Check for output
         run: |
           export FILESIZE=$(wc -c output.txt | awk '{print $1}') && echo $FILESIZE
-      -name: Find Discord user
+      - name: Find Discord user
         run: |
           export USERCODE=$(jq .github/workflows/usernames.json .)
       - name: Send discord message
