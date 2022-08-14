@@ -17,7 +17,7 @@ jobs:
           export FILESIZE=$(wc -c output.txt | awk '{print $1}') && echo $FILESIZE
       - name: Find Discord user
         run: |
-          export USERCODE=$(cat .github/workflows/usernames.json | jq .warshawd)
+          export USERCODE=$(cat .github/workflows/usernames.json | jq .warshawd) && echo $USERCODE
       - name: Send discord message
         uses: tsickert/discord-webhook@v4.0.0
         if: ${{env.FILESIZE == '0'}}
