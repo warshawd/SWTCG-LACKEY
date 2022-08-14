@@ -1,7 +1,8 @@
 name: validate-commit
 on: [push]
 env:
-  USERCODE: coder
+  DISCORD_NAME: coder
+  FILE_SIZE: 0
 jobs:
   validate-commit:
     runs-on: ubuntu-latest
@@ -16,14 +17,14 @@ jobs:
           python3 missingCardFinder.py > output.txt
       - name: Check for output
         run: |
-          export FILESIZE=$(wc -c output.txt | awk '{print $1}') && echo $FILESIZE
+          export FILESIZE=$(wc -c output.txt | awk '{print $1}') && echo "FILE_SIZE=$FILESIZE" >> $GITHUB_ENV
       - name: Find Discord user
         run: |
-          export USERCODENAME=$(cat .github/workflows/usernames.json | jq -r .warshawd) && echo "USERCODE=$USERCODENAME" >> $GITHUB_ENV
+          export USERCODE=$(cat .github/workflows/usernames.json | jq -r .warshawd) && echo "DISCORD_NAME=$USERCODE" >> $GITHUB_ENV
       - name: Send discord message
         uses: tsickert/discord-webhook@v4.0.0
-        if: ${{env.FILESIZE == '0'}}
+        if: ${{env.FILE_SIZE != '0'}}
         with:
           webhook-url: https://discord.com/api/webhooks/1008230543684538408/ZXcQKzsmHHQujCjpWoeQCCRvmeIS3bMfsUJSQLn2jbmsqh63GYRvtJoX0KGdSEUXKbur
           filename: output.txt
-          content: Hey ${{ env.USERCODE }}, it looks like there was an error with your last plugin commit.
+          content: Hey ${{ env.DISCORD_NAME }}, it looks like there was an error with your last plugin commit.
