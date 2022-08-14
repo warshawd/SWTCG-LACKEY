@@ -28,12 +28,12 @@ def processULCard(imageFrag, currentSet, cards):
 	# print(imageFrag)
 	imagePath = baseSetPath + "setimages/" + currentSet + "/" + imageFrag
 	if not os.path.exists(imagePath):
-		missingCards[imageFrag] = "Image file doesn't exist in folder " + currentSet + ": " + imageFrag
+		missingCards[imageFrag] = "Image file from UpdateList entry doesn't exist in folder " + currentSet + ": " + imageFrag
 		# print("imagePath is " + imagePath)
 
 	slicedFrag = imageFrag[:-4]
 	if slicedFrag not in cards.keys():
-		missingCards[slicedFrag] = slicedFrag + " not found in " + currentSet + ".txt"
+		missingCards[slicedFrag] = slicedFrag + " from UpdateList not found in " + currentSet + ".txt"
 		# if currentSet == "TMW":
 		# 	print("slicedFrag is " + slicedFrag)
 	else:
@@ -86,7 +86,7 @@ def processUpdateList():
 				for key in cards.keys():
 					if cards[key] == True:
 						# print("key was true for " + key)
-						missingCards[key] = key + " from set file " + currentSet + " had no corresponding updateList entry"
+						missingCards[key] = key + " from set file " + currentSet + " has no corresponding updateList entry"
 				currentSet = nextSet
 				cards = processSetFile(currentSet)
 			processULCard(imageLink, currentSet, cards)
