@@ -11,7 +11,7 @@ sets = {"AOTC": 180, "SR": 90, "ANH": "A New Hope", "BOY": "Battle of Yavin", "J
 "TEN": "Tenth Anniversary", "BOSB": "Battle of Starkiller Base", "TLJ": "The Last Jedi", "SOR": "Spark of Rebellion", "BF": "Battlefront", "JK": "Jedi Knight",
 "TUF": "The New Jedi Order: The Unifying Force", "BOC": "Battle of Crait", "SOLO": "Solo: A Star Wars Story", "KAE": "The Old Republic: Knights and Exiles",
 "TM": "The Mandalorian", "15TH": "15th Anniversary", "TROS": "The Rise of Skywalker", "AAA": "Apprentices and Assassins", "FOR": "Fires of Rebellion", 
-"BOTS": "Battle of the Sarlacc", "TMW": "The Mandalorian Way"}
+"BOTS": "Battle of the Sarlacc", "TMW": "The Mandalorian Way", "BOBF": "The Book of Boba Fett"}
 
 baseSetPath = "starwars/sets/"
 # baseSetPath = "LackeyCCG/plugins/starwars/sets/"
