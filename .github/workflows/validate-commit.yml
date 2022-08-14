@@ -15,10 +15,13 @@ jobs:
       - name: Check for output
         run: |
           export FILESIZE=$(wc -c output.txt | awk '{print $1}') && echo $FILESIZE
+      -name: Find Discord user
+        run: |
+          export USERCODE=$(jq .github/workflows/usernames.json .)
       - name: Send discord message
         uses: tsickert/discord-webhook@v4.0.0
         if: ${{env.FILESIZE == '0'}}
         with:
           webhook-url: https://discord.com/api/webhooks/1008230543684538408/ZXcQKzsmHHQujCjpWoeQCCRvmeIS3bMfsUJSQLn2jbmsqh63GYRvtJoX0KGdSEUXKbur
           filename: output.txt
-          content: Hey <@200833359625060352>, it looks like there was an error with your last plugin commit.
+          content: Hey ${{env.USERCODE}}, it looks like there was an error with your last plugin commit.
