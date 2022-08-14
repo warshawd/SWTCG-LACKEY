@@ -9,12 +9,12 @@ jobs:
     steps:
       - name: Report branch info
         run: |
-          echo "🔎 The name of your branch is ${{ github.ref }}, hope that's the one you mean!"
+          echo "🔎 The name of your branch is ${{ github.ref }}, hope that's the one you mean!" && echo "1: $GITHUB_ACTOR" && echo "2: ${{ GITHUB_ACTOR }}"
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: Validate the plugin
         run: |
-          python3 missingCardFinder.py > output.txt
+          python3 missingCardFinder.py > output.txt && cat output.txt
       - name: Check for output
         run: |
           export FILESIZE=$(wc -c output.txt | awk '{print $1}') && echo "FILE_SIZE=$FILESIZE" >> $GITHUB_ENV
