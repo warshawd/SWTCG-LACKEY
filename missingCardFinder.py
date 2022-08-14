@@ -13,7 +13,7 @@ sets = {"AOTC": 180, "SR": 90, "ANH": "A New Hope", "BOY": "Battle of Yavin", "J
 "TM": "The Mandalorian", "15TH": "15th Anniversary", "TROS": "The Rise of Skywalker", "AAA": "Apprentices and Assassins", "FOR": "Fires of Rebellion", 
 "BOTS": "Battle of the Sarlacc", "TMW": "The Mandalorian Way"}
 
-baseSetPath = "SWTCG-LACKEY/starwars/sets/"
+baseSetPath = "starwars/sets/"
 # baseSetPath = "LackeyCCG/plugins/starwars/sets/"
 
 missingCards = {}
@@ -66,7 +66,7 @@ def processSetFile(setCode):
 
 
 def processUpdateList():
-	with io.open("SWTCG-LACKEY/starwars/updatelist.txt", "r", encoding='cp1252') as updateList:
+	with io.open("starwars/updatelist.txt", "r", encoding='cp1252') as updateList:
 	# with io.open("LackeyCCG/plugins/starwars/updatelist.txt", "r", encoding='cp1252') as updateList:
 		counter = 0
 
