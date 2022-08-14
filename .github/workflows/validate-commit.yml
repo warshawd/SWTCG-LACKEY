@@ -14,7 +14,7 @@ jobs:
           python3 missingCardFinder.py > output.txt
       - name: Check for output
         run: |
-          export FILESIZE=$(wc -c output.txt | awk '{print $1}') && echo $(FILESIZE)
+          export FILESIZE=$(wc -c output.txt | awk '{print $1}') && echo $FILESIZE
       - uses: tsickert/discord-webhook@v4.0.0
         if: ${{env.FILESIZE != '0'}}
         with:
