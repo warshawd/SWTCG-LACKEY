@@ -930,7 +930,7 @@ AOTC/Hatch_a_Clone.jpg	https://lackey.swtcg.com/starwars/sets/setimages/AOTC/Hat
 AOTC/Heros_Dodge.jpg	https://lackey.swtcg.com/starwars/sets/setimages/AOTC/Heros_Dodge.jpg
 AOTC/Heros_Duty.jpg	https://lackey.swtcg.com/starwars/sets/setimages/AOTC/Heros_Duty.jpg
 AOTC/Heros_Flaw.jpg	https://lackey.swtcg.com/starwars/sets/setimages/AOTC/Heros_Flaw.jpg
-AOTC/High_Force_Dodge.jpg	https://lackey.swtcg.com/starwars/sets/setimages/AOTC/High_Force_Dodge.jpg
+AOTC/High_orce_Dodge.jpg	https://lackey.swtcg.com/starwars/sets/setimages/AOTC/High_Force_Dodge.jpg
 AOTC/Hyperdrive_Ring.jpg	https://lackey.swtcg.com/starwars/sets/setimages/AOTC/Hyperdrive_Ring.jpg
 AOTC/Infantry_Battle_Droid_B1_Series.jpg	https://lackey.swtcg.com/starwars/sets/setimages/AOTC/Infantry_Battle_Droid_B1_Series.jpg
 AOTC/Interference_in_the_Senate.jpg	https://lackey.swtcg.com/starwars/sets/setimages/AOTC/Interference_in_the_Senate.jpg
